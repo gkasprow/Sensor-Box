@@ -20,5 +20,3 @@ ProjectPath=Sensor_Box_Hub\Sensorbox_Hub_ESP32.PrjPcb
 ProjectPath=Common_Sensor_Box\Common_Sensor_Box.PrjPCB
 [Project10]
 ProjectPath=Sensor_Box_IO_Relay\Sensor_Box_IO_Relay.PrjPCB
-[Project11]
-ProjectPath=..\..\..\..\..\FILTER\PCB_FIlter_Control\PCB_Filter_Control.PrjPcb
