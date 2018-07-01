@@ -70,7 +70,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=GJNACNPH
 
 [Document3]
 DocumentPath=Sensor_Box_Smart_IO.SchDoc
@@ -87,7 +87,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=TFBPYLTV
 
 [ProjectVariant1]
 UniqueID=6789D33B-1B00-40BD-B6C5-70869FF8839A

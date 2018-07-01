@@ -38,5 +38,3 @@ ProjectPath=Sensor_Box_RGB_CTRL\Sensor_Box_RGB_CTRL.PrjPCB
 ProjectPath=Sensor_Box_CAN_Shutter_CTRL\Sensor_Box_CAN_Shutter_CTRL.PrjPCB
 [Project19]
 ProjectPath=..\..\..\Sinara_ALTIUM\EEMs\Thermostat\Thermostat.PrjPCB
-[Project20]
-ProjectPath=C:\temp\carambola\OMEGA2\Imported OMEGA2.lia\OMEGA2.LibPkg
