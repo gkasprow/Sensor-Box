@@ -1,4 +1,5 @@
-/*
+#include "credentials.h"
+  /*
 This example shows how to connect to Cayenne using an Ethernet W5500 shield and send/receive sample data.
 
 The CayenneMQTT Library is required to run this sketch. If you have not already done so you can install it from the Arduino IDE Library Manager.
@@ -11,60 +12,132 @@ Steps:
 5. A temporary widget will be automatically generated in the Cayenne Dashboard. To make the widget permanent click the plus sign on the widget.
 */
 
-//#define CAYENNE_DEBUG       // Uncomment to show debug messages
-#define CAYENNE_PRINT Serial  // Comment this out to disable prints and save space
+
+#define CAYENNE_LOG SerialUSB
+#define CAYENNE_PRINT SerialUSB  // Comment this out to disable prints and save space
 #include <CayenneMQTTEthernetW5500.h>
 
-// Cayenne authentication info. This should be obtained from the Cayenne Dashboard.
-char username[] = "dbeef360-a5c5-11e7-bba6-6918eb39b85e";
-char password[] = "4bf5c884c749da17023a9156a1b514beef743dbe";
-char clientID[] = "0379ffe0-f1ae-11e7-b2d9-f97d29dc33e8";
+#define LENG 9  //0xAA + 8 bytes s
+unsigned char buf[LENG];
+int PM2_5Value = 0, PM2_5_AV_Value = 0;    //define PM2.5 value of the air detector module
+int PM10Value = 0, PM10_AV_Value = 0;    //define PM10 value of the air detector module
+int AV_CNT = 0;
+
+
 // Mac address should be different for each device in your LAN
 byte arduino_mac[] = { 0xDE, 0xED, 0xBA, 0xFE, 0xFE, 0xED };
 unsigned long lastMillis = 0;
 
 void setup() {
-	Serial.begin(9600);
- Serial.print("init ");
+	SerialUSB.begin(9600);
+ SerialUSB.print("init ");
+ 
+  Serial.begin(9600);
+  Serial.setTimeout(1500);
+ 
  delay(100);
 	Cayenne.begin(username, password, clientID, arduino_mac );
-  Serial.print("starting ");
-}
-
-void loop() {
-	Cayenne.loop();
-
-
- //Publish data every 10 seconds (10000 milliseconds). Change this value to publish at a different interval.
-  if (millis() - lastMillis > 10000) {
-    lastMillis = millis();
-   // Write data to Cayenne here. This example just sends the current uptime in milliseconds.
-    Cayenne.virtualWrite(0, lastMillis);
- //  Some examples of other functions you can use to send data.
-    Cayenne.celsiusWrite(1, 22.0);
-    Cayenne.luxWrite(2, 700);
-//    Cayenne.virtualWrite(3, 50, TYPE_PROXIMITY, UNIT_CENTIMETER);
-  }
-}
-
-// Default function for sending sensor data at intervals to Cayenne.
-// You can also use functions for specific channels, e.g CAYENNE_OUT(1) for sending channel 1 data.
-//CAYENNE_OUT_DEFAULT()
-//{
-	// Write data to Cayenne here. This example just sends the current uptime in milliseconds on virtual channel 0.
-	//Cayenne.virtualWrite(0, millis());
-   //Serial.print("upd ");
+  SerialUSB.print("starting ");
   
-	// Some examples of other functions you can use to send data.
-	//Cayenne.celsiusWrite(1, 22.0);
-	//Cayenne.luxWrite(2, 700);
-	//Cayenne.virtualWrite(3, 50, TYPE_PROXIMITY, UNIT_CENTIMETER);
-//}
+}
 
-// Default function for processing actuator commands from the Cayenne Dashboard.
-// You can also use functions for specific channels, e.g CAYENNE_IN(1) for channel 1 commands.
-//CAYENNE_IN_DEFAULT()
-//{
-	//CAYENNE_LOG("Channel %u, value %s", request.channel, getValue.asString());
-	//Process message here. If there is an error set an error message using getValue.setError(), e.g getValue.setError("Error message");
-//}
+void loop()
+{
+  Cayenne.loop();
+  if (Serial.available())
+  {
+    if (Serial.read() == 0xAA)
+    {
+      Serial.readBytes(buf, LENG);
+      if (buf[0] == 0xC0) {
+        if (checkValue(buf, LENG)) {
+          PM2_5Value = transmitPM2_5(buf); //count PM2.5 value of the air detector module
+          PM10Value = transmitPM10(buf); //count PM10 value of the air detector module
+        }
+      }
+    }
+  }
+
+  static unsigned long OledTimer = millis();
+  if (millis() - OledTimer >= 1000)
+  {
+    OledTimer = millis();
+
+    SerialUSB.print("PM2.5: ");
+    SerialUSB.print(PM2_5Value);
+    SerialUSB.println("  ug/m3");
+
+    SerialUSB.print("PM10: ");
+    SerialUSB.print(PM10Value);
+    SerialUSB.println("  ug/m3");
+    SerialUSB.println();
+
+
+    if (AV_CNT++ < 10)
+    {
+      PM2_5_AV_Value += PM2_5Value;
+      PM10_AV_Value += PM10Value;
+    }
+    else
+    {
+      AV_CNT = 0;
+//      Serial.print("PM2.5 AV: ");
+//      Serial.print(PM2_5_AV_Value);
+//      Serial.println("  ug/m3");
+//
+//      Serial.print("PM10 AV: ");
+//      Serial.print(PM10_AV_Value);
+//      Serial.println("  ug/m3");
+//      Serial.println();
+      Cayenne.virtualWrite(3, (float)(PM2_5_AV_Value / 100));
+      Cayenne.virtualWrite(4, (float)(PM10_AV_Value / 100));
+      PM2_5_AV_Value = 0;
+      PM10_AV_Value = 0;
+    }
+  }
+
+}
+char checkValue(unsigned char *thebuf, char leng)
+{
+  char receiveflag = 0;
+  int receiveSum = 0;
+
+  //   for(int i=0; i<(LENG); i++){
+  //            Serial.print(buf[i], HEX);
+  //             }
+
+
+  for (int i = 1; i < (leng - 2); i++) {
+    receiveSum = receiveSum + thebuf[i];
+  }
+  receiveSum = receiveSum & 0xFF;
+  //   Serial.print("sum");
+  //  Serial.print(receiveSum, HEX);
+  //   Serial.print(thebuf[leng-1],HEX);
+
+  if (receiveSum == thebuf[leng - 2]) //check the serial data
+  {
+    receiveSum = 0;
+    receiveflag = 1;
+
+    //   Serial.print("sum OK");
+  }
+  return receiveflag;
+}
+
+
+//transmit PM Value to PC
+int transmitPM2_5(unsigned char *thebuf)
+{
+  int PM2_5Val;
+  PM2_5Val = ((thebuf[2] << 8) + thebuf[1]); //count PM2.5 value of the air detector module
+  return PM2_5Val;
+}
+
+//transmit PM Value to PC
+int transmitPM10(unsigned char *thebuf)
+{
+  int PM10Val;
+  PM10Val = ((thebuf[4] << 8) + thebuf[3]); //count PM10 value of the air detector module
+  return PM10Val;
+}

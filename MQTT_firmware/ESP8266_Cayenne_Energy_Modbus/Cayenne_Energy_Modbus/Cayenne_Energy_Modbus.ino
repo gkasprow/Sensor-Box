@@ -1,4 +1,4 @@
-
+#include "credentials.h"
 //pin mapping definition
 
 #define D0      16
@@ -37,14 +37,7 @@ ModbusMaster node;
 #include <DallasTemperature.h>
 #include <CayenneMQTTESP8266.h>
 
-// WiFi network info.
-char ssid[] = "Casper2";
-char wifiPassword[] = "abbaabbaff.";
 
-// Cayenne authentication info. This should be obtained from the Cayenne Dashboard.
-char username[] = "dbeef360-a5c5-11e7-bba6-6918eb39b85e";
-char password[] = "4bf5c884c749da17023a9156a1b514beef743dbe";
-char clientID[] = "ed2251e0-c249-11e7-908a-490c6eeaa75c";
 
 unsigned long lastMillis = 0;
 

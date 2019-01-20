@@ -1,3 +1,4 @@
+#include "credentials.h"
 #include <Stepper.h>
 #include <Wire.h>
 #include "Arduino.h"
@@ -42,17 +43,6 @@ Stepper myStepper(stepsPerRevolution,  yellow, blue, pink,  orange);
 
 
 
-// Cayenne authentication info. This should be obtained from the Cayenne Dashboard.
-// 
-char username[] = "dbeef360-a5c5-11e7-bba6-6918eb39b85e"; 
-char password[] = "4bf5c884c749da17023a9156a1b514beef743dbe";
-char clientID[] = "8f63aef0-0682-11e8-9094-712b97c1b05a";
-
-
-/* change it with your ssid-password */
-char ssid[] = "Casper";
-////char wifiPassword[] = "B224F678E573DB5";
-char wifiPassword[] = "abbaabbaff.";
 
 
 

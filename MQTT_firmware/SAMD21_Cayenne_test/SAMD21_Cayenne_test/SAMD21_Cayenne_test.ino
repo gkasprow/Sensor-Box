@@ -1,3 +1,4 @@
+#include "credentials.h"
 /*
 Cayenne Generic Digital Output Example
 

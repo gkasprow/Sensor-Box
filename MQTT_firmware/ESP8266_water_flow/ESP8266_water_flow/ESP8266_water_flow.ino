@@ -1,4 +1,4 @@
-
+#include "credentials.h"
 
 
 
@@ -15,15 +15,7 @@ OneWire oneWire(tmpPin);
 DallasTemperature sensors(&oneWire);
 
 
-// WiFi network info.
-char ssid[] = "Casper2";
-char wifiPassword[] = "abbaabbaff.";
 
-
-// Cayenne authentication info. This should be obtained from the Cayenne Dashboard.
-char username[] = "dbeef360-a5c5-11e7-bba6-6918eb39b85e";
-char password[] = "4bf5c884c749da17023a9156a1b514beef743dbe";
-char clientID[] = "7069bfd0-9106-11e8-87b0-97a7dd91c15a";
 
 unsigned long lastMillis = 0;
 // Virtual Pin of the DS18B20 widget.

@@ -1,3 +1,4 @@
+#include "credentials.h"
 /*
   LoRa Simple Yun Server :
   Support Devices: LG01. 

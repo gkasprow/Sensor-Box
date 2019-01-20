@@ -1,3 +1,4 @@
+#include "credentials.h"
 /*
   LoRa Simple Client for Arduino :
   Support Devices: LoRa Shield + Arduino 

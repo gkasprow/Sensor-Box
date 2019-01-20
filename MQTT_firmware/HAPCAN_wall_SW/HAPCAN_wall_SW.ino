@@ -1,3 +1,4 @@
+#include "credentials.h"
 #include "Arduino.h"
 #include <SPI.h>
 #include <EEPROM.h>

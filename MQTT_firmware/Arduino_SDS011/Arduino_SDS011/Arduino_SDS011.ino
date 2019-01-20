@@ -10,19 +10,19 @@
 //*Author：Zuyang @ HUST
 //*Date：March.25.2016
 //******************************
-//#define CAYENNE_PRINT Serial  // Comment this out to disable prints and save space
-#include <CayenneMQTTEthernet.h>
+
+
+#include "credentials.h"
+
+#define CAYENNE_PRINT SerialUSB  // Comment this out to disable prints and save space
+#include <CayenneMQTTEthernetW5500.h>
 //#include <Arduino.h>
 //#include <SoftwareSerial.h>
 #define LENG 9  //0xAA + 8 bytes s
 unsigned char buf[LENG];
 
 
-// Cayenne authentication token. This should be obtained from the Cayenne Dashboard.
-//char token[] = "s9ac217opp";
-char username[] = "dbeef360-a5c5-11e7-bba6-6918eb39b85e";
-char password[] = "4bf5c884c749da17023a9156a1b514beef743dbe";
-char clientID[] = "1f507c40-cd22-11e7-b67f-67bba9556416";
+
 
 int PM2_5Value = 0, PM2_5_AV_Value = 0;    //define PM2.5 value of the air detector module
 int PM10Value = 0, PM10_AV_Value = 0;    //define PM10 value of the air detector module
@@ -32,13 +32,13 @@ int AV_CNT = 0;
 
 void setup()
 {
-  Serial1.begin(9600);
-  Serial1.setTimeout(1500);
-  //Serial.begin(9600);
-  //    while (!Serial) {
-  //    ; // wait for serial port to connect. Needed for native USB port only
-  //  }
-  //Serial.print("serial demo ");
+  Serial.begin(9600);
+  Serial.setTimeout(1500);
+  SerialUSB.begin(9600);
+//      while (!SerialUSB) {
+//      ; // wait for serial port to connect. Needed for native USB port only
+//    }
+  SerialUSB.print("serial demo ");
   Cayenne.begin(username, password, clientID);
 }
 
@@ -54,11 +54,11 @@ void setup()
 void loop()
 {
   Cayenne.loop();
-  if (Serial1.available())
+  if (Serial.available())
   {
-    if (Serial1.read() == 0xAA)
+    if (Serial.read() == 0xAA)
     {
-      Serial1.readBytes(buf, LENG);
+      Serial.readBytes(buf, LENG);
       if (buf[0] == 0xC0) {
         if (checkValue(buf, LENG)) {
           PM2_5Value = transmitPM2_5(buf); //count PM2.5 value of the air detector module
@@ -73,14 +73,14 @@ void loop()
   {
     OledTimer = millis();
 
-//    Serial.print("PM2.5: ");
-//    Serial.print(PM2_5Value);
-//    Serial.println("  ug/m3");
-//
-//    Serial.print("PM10: ");
-//    Serial.print(PM10Value);
-//    Serial.println("  ug/m3");
-//    Serial.println();
+    SerialUSB.print("PM2.5: ");
+    SerialUSB.print(PM2_5Value);
+    SerialUSB.println("  ug/m3");
+
+    SerialUSB.print("PM10: ");
+    SerialUSB.print(PM10Value);
+    SerialUSB.println("  ug/m3");
+    SerialUSB.println();
 
 
     if (AV_CNT++ < 10)
@@ -151,6 +151,3 @@ int transmitPM10(unsigned char *thebuf)
   PM10Val = ((thebuf[4] << 8) + thebuf[3]); //count PM10 value of the air detector module
   return PM10Val;
 }
-
-
-

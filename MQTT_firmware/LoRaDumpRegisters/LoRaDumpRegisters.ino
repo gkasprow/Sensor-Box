@@ -1,3 +1,4 @@
+#include "credentials.h"
 /*
   LoRa register dump
 

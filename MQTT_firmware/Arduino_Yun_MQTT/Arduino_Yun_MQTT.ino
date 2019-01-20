@@ -1,5 +1,5 @@
 // This example shows how to connect to Cayenne using an Arduino Yun and send/receive sample data.
-
+#include "credentials.h"
 //#define CAYENNE_DEBUG
 //#define CAYENNE_PRINT Serial
 #include <CayenneMQTTYun.h>
@@ -9,10 +9,7 @@
 // Singleton instance of the radio driver
 RH_RF95 rf95;
 
-// Cayenne authentication info. This should be obtained from the Cayenne Dashboard.
-char username[] = "dbeef360-a5c5-11e7-bba6-6918eb39b85e";
-char password[] = "4bf5c884c749da17023a9156a1b514beef743dbe";
-char clientID[] = "59ea40b0-a39c-11e8-b90b-23f7758e03a0";
+
 
 unsigned long lastMillis = 0;
 float frequency = 915.0;

@@ -1,3 +1,4 @@
+#include "credentials.h"
 #include <Servo.h>
 
 
@@ -10,13 +11,7 @@ Servo myservo;
 int val;    // variable to read the value from the analog pin
 unsigned long lastMillis = 0;
 
-char username[] = "dbeef360-a5c5-11e7-bba6-6918eb39b85e"; 
-char password[] = "4bf5c884c749da17023a9156a1b514beef743dbe";
-char clientID[] = "d2532bf0-ddd8-11e7-a824-91d417d3812a";
-/* change it with your ssid-password */
-char ssid[] = "Casper";
-//char wifiPassword[] = "B224F678E573DB5";
-char wifiPassword[] = "abbaabbaff.";
+
 
 
 void setup()

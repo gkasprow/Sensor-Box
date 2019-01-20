@@ -1,3 +1,4 @@
+#include "credentials.h"
 #include "PMS.h"
 
 #define INFO_CPU ESP8266
@@ -15,19 +16,7 @@ int AV_CNT=0,RSSI_AV=0;
 
 unsigned long lastMillis = 0;
 
-char username[] = "dbeef360-a5c5-11e7-bba6-6918eb39b85e"; 
-char password[] = "4bf5c884c749da17023a9156a1b514beef743dbe";
-char clientID[] = "453f3930-dd46-11e7-8123-07faebe02555";
-//
-//char username[] = "dbeef360-a5c5-11e7-bba6-6918eb39b85e"; 
-//char password[] = "4bf5c884c749da17023a9156a1b514beef743dbe";
-//char clientID[] = "6104d860-ff55-11e7-b10d-9981dfc22c01";
 
-/* change it with your ssid-password */
-char ssid[] = "Casper3";
-//char ssid[] = "Creotech";
-//char wifiPassword[] = "B224F678E573DB5";
-char wifiPassword[] = "abbaabbaff.";
 
 
 void setup()

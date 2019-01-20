@@ -1,4 +1,4 @@
-
+#include "credentials.h"
 #define CAYENNE_DEBUG
 
 
@@ -32,20 +32,7 @@ int PM10Value=0,PM10_AV_Value=0;         //define PM10 value of the air detector
 int AV_CNT=0;
 
 
-// Cayenne authentication info. This should be obtained from the Cayenne Dashboard.
-// EXTERNAL
-//char username[] = "dbeef360-a5c5-11e7-bba6-6918eb39b85e"; 
-//char password[] = "4bf5c884c749da17023a9156a1b514beef743dbe";
-//char clientID[] = "0a08e350-d2f3-11e7-9768-2143f8645011";
-//INTERNAL
-char username[] = "dbeef360-a5c5-11e7-bba6-6918eb39b85e";
-char password[] = "4bf5c884c749da17023a9156a1b514beef743dbe";
-char clientID[] = "7147f7f0-d2f2-11e7-ad90-91233d82c471";
 
-/* change it with your ssid-password */
-char ssid[] = "Casper";
-//char wifiPassword[] = "B224F678E573DB5";
-char wifiPassword[] = "abbaabbaff.";
 
 
 

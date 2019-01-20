@@ -1,3 +1,4 @@
+#include "credentials.h"
 #include <Adafruit_Sensor.h>
 #include <DHT.h>
 #include <DHT_U.h>
@@ -37,8 +38,7 @@ Steps:
 #define VIRTUAL_PIN 1
 
 
-// Cayenne authentication token. This should be obtained from the Cayenne Dashboard.
-char token[] = "fekjd4ayoj";
+
 unsigned long lastMillis = 0;
 
 void setup()

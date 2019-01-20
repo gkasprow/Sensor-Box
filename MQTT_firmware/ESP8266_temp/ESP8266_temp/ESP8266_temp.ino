@@ -1,4 +1,4 @@
-
+#include "credentials.h"
 
 // This example shows how to connect to Cayenne using an ESP8266 and send/receive sample data.
 // Make sure you install the ESP8266 Board Package via the Arduino IDE Board Manager and select the correct ESP8266 board before compiling. 
@@ -9,23 +9,15 @@
 #include <DallasTemperature.h>
 #include <CayenneMQTTESP8266.h>
 
-// WiFi network info.
-char ssid[] = "Casper";
-char wifiPassword[] = "abbaabbaff.";
 
-// Cayenne authentication info. This should be obtained from the Cayenne Dashboard.
-char username[] = "dbeef360-a5c5-11e7-bba6-6918eb39b85e";
-char password[] = "4bf5c884c749da17023a9156a1b514beef743dbe";
-char clientID[] = "cc4e20b0-b0de-11e7-b0e9-e9adcff3788e";
 
 unsigned long lastMillis = 0;
 
 
-// Virtual Pin of the DS18B20 widget.
-#define VIRTUAL_PIN V1
+
 
 // Digital pin the DS18B20 is connected to. Do not use digital pins 0 or 1 since those conflict with the use of Serial.
-const int tmpPin = 14;
+const int tmpPin = D5;
 
 OneWire oneWire(tmpPin);
 DallasTemperature sensors(&oneWire);
@@ -46,7 +38,15 @@ void loop() {
 		Cayenne.virtualWrite(0, lastMillis);
 		//Some examples of other functions you can use to send data.
     sensors.requestTemperatures();
-	  Cayenne.celsiusWrite(VIRTUAL_PIN, sensors.getTempCByIndex(0));
+	  Cayenne.celsiusWrite(1, sensors.getTempCByIndex(0));
+    Cayenne.celsiusWrite(2, sensors.getTempCByIndex(1));
+    Cayenne.celsiusWrite(3, sensors.getTempCByIndex(2));
+    Cayenne.celsiusWrite(4, sensors.getTempCByIndex(3));
+
+      Serial.print("tem0: ");Serial.println(sensors.getTempCByIndex(0));
+      Serial.print("tem1: ");Serial.println(sensors.getTempCByIndex(1));
+      Serial.print("tem2: ");Serial.println(sensors.getTempCByIndex(2));
+      Serial.print("tem3: ");Serial.println(sensors.getTempCByIndex(3));
 		//Cayenne.luxWrite(2, 700);
 		//Cayenne.virtualWrite(3, 50, TYPE_PROXIMITY, UNIT_CENTIMETER);
 	}
