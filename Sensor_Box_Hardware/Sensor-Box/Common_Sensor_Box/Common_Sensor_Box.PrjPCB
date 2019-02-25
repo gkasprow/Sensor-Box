@@ -310,13 +310,13 @@ GenerateClassCluster=0
 DocumentUniqueId=IXUFDBBX
 
 [Document17]
-DocumentPath=..\Sensor_Box_PWR_Backup\Sensor_Box_PWR_Backup.SchDoc
+DocumentPath=..\Sensor_Box_Water_Meter_Valve\Sensor_Box_Water_Meter_Valve.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
 AnnotateSuffix=
 AnnotateScope=All
-AnnotateOrder=15
+AnnotateOrder=23
 DoLibraryUpdate=1
 DoDatabaseUpdate=1
 ClassGenCCAutoEnabled=1
@@ -324,60 +324,9 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=AGECWPWX
+DocumentUniqueId=DCSLWJUJ
 
 [Document18]
-DocumentPath=..\Sensor_Box_CAN_Switch\Sensor_Box_CAN_Switch.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=12
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=MGYGCPXK
-
-[Document19]
-DocumentPath=..\Sensor_Box_CAN_SENS\Sensor_Box_CAN_SENS.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=10
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=WOQFFMWW
-
-[Document20]
-DocumentPath=..\Sensor_Box_CAN_Shutter_CTRL\Sensor_Box_CAN_Shutter_CTRL.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=11
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=KLQXBBKD
-
-[Document21]
 DocumentPath=..\Sensor_Box_RGB_CTRL\Sensor_Box_RGB_CTRL.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -394,14 +343,14 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=ACLUMYAK
 
-[Document22]
-DocumentPath=..\..\..\..\Sinara_ALTIUM\EEMs\Thermostat\Thermostat.schdoc
+[Document19]
+DocumentPath=..\Sensor_Box_LoRa\Sensor_Box_LoRa.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
 AnnotateSuffix=
 AnnotateScope=All
-AnnotateOrder=20
+AnnotateOrder=25
 DoLibraryUpdate=1
 DoDatabaseUpdate=1
 ClassGenCCAutoEnabled=1
@@ -409,9 +358,26 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=WYDWVJPF
+DocumentUniqueId=URYHYONB
 
-[Document23]
+[Document20]
+DocumentPath=..\Sensor_Box_PWR_Backup\Sensor_Box_PWR_Backup.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=15
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=AGECWPWX
+
+[Document21]
 DocumentPath=..\Sensor_Box_CAN_Shutter_CTRL_STM\Sensor_Box_CAN_Shutter_CTRL_STM.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -428,7 +394,24 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=WIXPADCI
 
-[Document24]
+[Document22]
+DocumentPath=..\Sensor_Box_CAN_Switch\Sensor_Box_CAN_Switch.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=12
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=MGYGCPXK
+
+[Document23]
 DocumentPath=..\Sensor_Box_CAN_Switch_STM\Sensor_Box_CAN_Switch_STM.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -445,14 +428,14 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=PWLUBQCO
 
-[Document25]
-DocumentPath=..\Sensor_Box_Water_Meter_Valve\Sensor_Box_Water_Meter_Valve.SchDoc
+[Document24]
+DocumentPath=..\Sensor_Box_CAN_SENS\Sensor_Box_CAN_SENS.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
 AnnotateSuffix=
 AnnotateScope=All
-AnnotateOrder=23
+AnnotateOrder=10
 DoLibraryUpdate=1
 DoDatabaseUpdate=1
 ClassGenCCAutoEnabled=1
@@ -460,7 +443,24 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=DCSLWJUJ
+DocumentUniqueId=WOQFFMWW
+
+[Document25]
+DocumentPath=..\Sensor_Box_CAN_Shutter_CTRL\Sensor_Box_CAN_Shutter_CTRL.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=11
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=KLQXBBKD
 
 [Document26]
 DocumentPath=..\Sensor_Box_LoRa_Flower_Wachdog\Sensor_LoRa_Flower_Watchdog.SchDoc
@@ -480,13 +480,13 @@ GenerateClassCluster=0
 DocumentUniqueId=EBMBNLJC
 
 [Document27]
-DocumentPath=..\Sensor_Box_LoRa\Sensor_Box_LoRa.SchDoc
+DocumentPath=..\Sensor_Box_RTD2DIG\RTD_Channel.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
 AnnotateSuffix=
 AnnotateScope=All
-AnnotateOrder=25
+AnnotateOrder=26
 DoLibraryUpdate=1
 DoDatabaseUpdate=1
 ClassGenCCAutoEnabled=1
@@ -494,7 +494,24 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=URYHYONB
+DocumentUniqueId=NUREPPOU
+
+[Document28]
+DocumentPath=..\Sensor_Box_RTD2DIG\Sensor_Box_RTD2DIG.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=27
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=RYPVXPCY
 
 [GeneratedDocument1]
 DocumentPath=Project Outputs for Common_Sensor_Box\Sensor_Box_CAN_SENS.BOM
@@ -1112,36 +1129,6 @@ OutputName9=Specctra Design PCB
 OutputDocumentPath9=
 OutputVariantName9=
 OutputDefault9=0
-OutputType10=Ansoft Neutral
-OutputName10=Ansoft Neutral (AutoPCB)
-OutputDocumentPath10=
-OutputVariantName10=
-OutputDefault10=0
-OutputType11=HyperLynx
-OutputName11=HyperLynx (AutoPCB)
-OutputDocumentPath11=
-OutputVariantName11=
-OutputDefault11=0
-OutputType12=Orcad v7 Capture Design
-OutputName12=Orcad v7 Capture Design (AutoSCH)
-OutputDocumentPath12=
-OutputVariantName12=
-OutputDefault12=0
-OutputType13=P-CAD ASCII
-OutputName13=P-CAD ASCII (AutoPCB)
-OutputDocumentPath13=
-OutputVariantName13=
-OutputDefault13=0
-OutputType14=P-CAD V16 Schematic Design
-OutputName14=P-CAD V16 Schematic Design (AutoSCH)
-OutputDocumentPath14=
-OutputVariantName14=
-OutputDefault14=0
-OutputType15=SiSoft
-OutputName15=SiSoft (AutoPCB)
-OutputDocumentPath15=
-OutputVariantName15=
-OutputDefault15=0
 
 [OutputGroup10]
 Name=PostProcess Outputs
